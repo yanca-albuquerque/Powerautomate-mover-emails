@@ -1,0 +1,30 @@
+Fluxo Atualizar linha Excel
+
+# Recorrência
+*Intervalo: 1 dia
+*Fuso horário: (UTC-03:00) Brasília
+
+# Listar linhas presentes em uma tabela
+*Localização:
+*Biblioteca de Documentos:
+*Arquivo:
+*Tabela:
+
+# Aplicar a cada
+*Saídas: outputs('Listar_linhas_presentes_em_uma_tabela')?['body/value']
+
+# Obter perfil do usuário (V2)
+*Usuário (UPN): items('Aplicar_a_cada')?['Email']
+*Parâmetros avançados: jobTitle,department
+
+# Atualizar uma linha
+*Localização:
+*Biblioteca de Documentos:
+*Arquivo:
+*Tabela:
+*Coluna de Chave: Email
+*Valor da Chave: items('Aplicar_a_cada')?['Email']
+
+**Parâmetros:
+*Departamento: outputs('Obter_perfil_do_usuário_(V2)')?['body/department']
+*Cargo: outputs('Obter_perfil_do_usuário_(V2)')?['body/jobTitle']
